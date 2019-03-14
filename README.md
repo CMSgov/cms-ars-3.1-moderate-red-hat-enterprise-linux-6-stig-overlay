@@ -45,7 +45,7 @@ The JSON InSpec results file may also be loaded into a __[full heimdall server](
 * Danny Haynes
 
 ## Special Thanks
-* Alicia Sturtevant
+* Sam Cornwell
 
 ## Contributing and Getting Help
 To report a bug or feature request, please open an [issue](https://github.cms.gov/ispg-dev/cms-ars-3.1-moderate-red-hat-enterprise-linux-6-stig-overlay/issues/new).
