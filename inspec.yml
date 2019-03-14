@@ -1,0 +1,14 @@
+name: cms-ars3.1-moderate-red-hat-enterprise-linux-6-stig-overlay
+title: cms-ars3.1-moderate-red-hat-enterprise-linux-6-stig-overlay
+maintainer: CMS InSpec Dev Team
+copyright: (c) 2019 The MITRE Corporation
+copyright_email: inspec@mitre.org
+license: Apache-2.0
+summary: "CMS ARS3.1 Overlay against the Red Hat Enterprise Linux 6 DISA STIG InSpec Profile"
+version: 0.1.0
+
+depends:
+- name: Red Hat Enterprise Linux 6 Security Technical Implementation Guide
+  git: https://github.com/mitre/red-hat-enterprise-linux-6-stig-baseline.git
+  branch: master
+
