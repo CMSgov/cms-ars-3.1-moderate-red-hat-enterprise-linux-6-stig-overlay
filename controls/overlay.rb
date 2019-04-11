@@ -1,24 +1,7 @@
 # encoding: utf-8
 
 include_controls 'Red Hat Enterprise Linux 6 Security Technical Implementation Guide' do
-  control 'V-38452' do
-    tag 'cci': 'CCI-001494'
-    tag 'nist': ['AU-9', 'Rev_4']
-  end
 
-  control 'V-38453' do
-  end
-
-  control 'V-38454' do
-  end
-
-  control 'V-38464' do
-  end
-
-  control 'V-38468' do
-    tag 'cci': 'CCI-001849'
-    tag 'nist': ['AU-4', 'Rev_4']
-  end
 
   control 'V-38477' do
     desc 'check', 'To check the minimum password age, run the command: 
@@ -258,7 +241,39 @@ If ucredit is not found or not set to the required value, this is a finding.'
   end
 
   control 'V-38592' do
+    title 'The system must require an account to be locked out for at least an hour for an account 
+    locked by excessive failed login attempts.'
 
+    desc 'Locking out user accounts after a number of incorrect attempts prevents direct password 
+    guessing attacks.'
+
+    desc 'check', 'To ensure the failed password attempt policy is configured correctly, run the 
+    following command: 
+
+    # grep pam_faillock /etc/pam.d/system-auth /etc/pam.d/password-auth
+
+    The output should show "unlock_time=1800" or higher.
+
+    If that is not the case, this is a finding.'
+
+    desc 'fix', 'To configure the system to lock out accounts after a number of incorrect 
+    logon attempts and require an administrator to unlock the account using "pam_faillock.so", 
+    modify the content of both "/etc/pam.d/system-auth" and "/etc/pam.d/password-auth" as follows: 
+    
+    Add the following line immediately before the "pam_unix.so" statement in the "AUTH" section: 
+
+    auth required pam_faillock.so preauth silent deny=3 unlock_time=1800 fail_interval=900
+
+    Add the following line immediately after the "pam_unix.so" statement in the "AUTH" section: 
+
+    auth [default=die] pam_faillock.so authfail deny=3 unlock_time=1800 fail_interval=900
+
+    Add the following line immediately before the "pam_unix.so" statement in the "ACCOUNT" section: 
+
+    account required pam_faillock.so
+
+    Note that any updates made to "/etc/pam.d/system-auth" and "/etc/pam.d/password-auth" may 
+    be overwritten by the "authconfig" program.  The "authconfig" program should not be used.'
   end
 
   control 'V-38593' do
@@ -325,15 +340,18 @@ If ucredit is not found or not set to the required value, this is a finding.'
   end
 
   control 'V-38610' do
-
+    tag "cci": ['CCI-002361']
+    tag "nist": ['AC-12', 'Rev_4']
   end
 
   control 'V-38611' do
-
+    tag "cci": ['CCI-000366']
+    tag "nist": ['CM-6 b', 'Rev_4']
   end
 
   control 'V-38612' do
-
+    tag "cci": ['CCI-000366']
+    tag "nist": ['CM-6 b', 'Rev_4']
   end
 
   control 'V-38615' do
@@ -345,28 +363,35 @@ If ucredit is not found or not set to the required value, this is a finding.'
          time source.'
   end
 
-  control 'V-38633' do
-
-  end
-
   control 'V-38658' do
+    title 'The system must prohibit the reuse of passwords within 6 iterations.'
 
-  end
+    desc 'check', 'To verify the password reuse setting is compliant, run the 
+    following command:
 
-  control 'V-38667' do
+    # grep remember /etc/pam.d/system-auth /etc/pam.d/password-auth
 
-  end
+    If the line is commented out, the line does not contain "password required pam_pwhistory.so" 
+    or "password requisite pam_pwhistory.so", or the value for "remember" is less than ‚ 6, 
+    this is a finding.'
 
-  control 'V-38670' do
+    desc 'fix', 'Do not allow users to reuse recent passwords. This can be accomplished by using 
+    the "remember" option for the "pam_pwhistory" PAM module. In the file "/etc/pam.d/system-auth" 
+    and /etc/pam.d/password-auth, append "remember=6" to the lines that refer to the "pam_pwhistory.so" 
+    module, as shown:
 
-  end
+    password required pam_pwhistory.so [existing_options] remember=6
 
-  control 'V-38673' do
+    or
 
+    password requisite pam_pwhistory.so [existing_options] remember=6
+
+    The CMS requirement is 6 passwords.'
   end
 
   control 'V-38681' do
-
+    tag "cci": ['CCI-000764']
+    tag "nist": ['IA-2', 'Rev_4']
   end
 
   control 'V-38685' do
@@ -503,7 +528,9 @@ If ucredit is not found or not set to the required value, this is a finding.'
   end
 
   control 'V-38693' do
-    
+     impact 'none'
+     desc 'caveat', 'Not applicable for this CMS ARS 3.1 overlay, since the related                                                     
+          security control is not included in CMS ARS 3.1'         
   end
 
   control 'V-38694' do
@@ -532,25 +559,5 @@ If ucredit is not found or not set to the required value, this is a finding.'
          period of inactivity for users in the particular environment. Setting the timeout too 
          low incurs support costs and also has the potential to impact availability of the system 
          to legitimate users.'
-  end
-
-  control 'V-38695' do
-
-  end
-
-  control 'V-38696' do
-
-  end
-
-  control 'V-38698' do
-
-  end
-
-  control 'V-38700' do
-
-  end
-
-  control 'V-51391' do
-
   end
 end
