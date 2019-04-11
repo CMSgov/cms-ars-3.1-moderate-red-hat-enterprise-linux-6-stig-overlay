@@ -2,7 +2,6 @@
 
 include_controls 'Red Hat Enterprise Linux 6 Security Technical Implementation Guide' do
 
-
   control 'V-38477' do
     desc 'check', 'To check the minimum password age, run the command: 
 
