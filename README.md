@@ -8,6 +8,23 @@ __For the best security of the runner, always install on the runner the _latest 
 
 Latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
 
+The following attributes must be configured in an attributes file for the profile to run correctly. More information about InSpec attributes can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
+
+```
+# description: 'The amount of space left. Typically, this is set to at least 25% of the volume housing the audit logs.'
+auditd_space_left: 225
+
+# description: 'The list of emergency accounts on the system.'
+emergency_accounts: []
+
+# description: 'The list of temporary accounts on the system.'
+temporary_accounts: []
+
+# description: 'The list of package signing keys used by the system.'
+package_signing_keys: ['gpg-pubkey-fd431d51-4ae0493b', 'gpg-pubkey-2fa658e0-45700c69']
+
+```
+
 ## Running This Overlay
 When the __"runner"__ host uses this profile overlay for the first time, follow these steps: 
 
