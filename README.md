@@ -36,7 +36,7 @@ git clone https://github.com/mitre/red-hat-enterprise-linux-6-stig-baseline.git
 cd cms-ars-3.1-moderate-red-hat-enterprise-linux-6-stig-overlay
 bundle install
 cd ..
-inspec exec cms-ars-3.1-moderate-red-hat-enterprise-linux-6-stig-overlay --target=ssh://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> 
+inspec exec cms-ars-3.1-moderate-red-hat-enterprise-linux-6-stig-overlay --attrs=cms-ars-3.1-moderate-red-hat-enterprise-linux-6-stig-overlay/static-attributes.yml <path_to_your_attributes_file/name_of_your_attributes_file.yml> --target=ssh://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> 
 ```
 
 For every successive run, follow these steps to always have the latest version of this overlay and dependent profiles:
@@ -48,7 +48,7 @@ cd ../cms-ars-3.1-moderate-red-hat-enterprise-linux-6-stig-overlay
 git pull
 bundle install
 cd ..
-inspec exec cms-ars-3.1-moderate-red-hat-enterprise-linux-6-stig-overlay --target=ssh://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> 
+inspec exec cms-ars-3.1-moderate-red-hat-enterprise-linux-6-stig-overlay --attrs=cms-ars-3.1-moderate-red-hat-enterprise-linux-6-stig-overlay/static-attributes.yml <path_to_your_attributes_file/name_of_your_attributes_file.yml> --target=ssh://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> 
 ```
 
 ## Viewing the JSON Results
