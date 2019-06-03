@@ -22,8 +22,8 @@ attributes:
     default: ''
   
   - name: max_logins
-    description: 'The maximum number of simultaneous system logins.' 
-    default: 10
+    description: 'The maximum number of simultaneous system logins. (e.g., 10)' 
+    default: 0
   
   - name: emergency_accounts
     description: 'The list of emergency accounts on the system.'
