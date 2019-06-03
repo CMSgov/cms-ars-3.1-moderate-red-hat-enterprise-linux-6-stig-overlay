@@ -14,7 +14,7 @@ depends:
 
 attributes:
   - name: auditd_space_left
-    description: 'The amount of space left in MB. Typically, this is set to at least 25% of the volume housing the audit logs (e.g. 25000 for 25% of a 100 GB volume).'
+    description: 'The amount of space left in MB. Typically, this is set to at least 25% of the volume housing the audit logs (e.g. 225).'
     default: 0
     
   - name: banner_text
