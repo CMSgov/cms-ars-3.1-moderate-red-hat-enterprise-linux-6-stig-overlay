@@ -11,8 +11,8 @@ Latest versions and installation options are available at the [InSpec](http://in
 The following attributes must be configured in an attributes file for the profile to run correctly. More information about InSpec attributes can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
 
 ```
-# description: The amount of space left. Typically, this is set to at least 25% of the volume housing the audit logs (e.g., 225).
-auditd_space_left: 225
+# description: The amount of space left in MB. Typically, this is set to at least 25% of the volume housing the audit logs (e.g., 225).
+auditd_space_left: 0
 
 # description: The list of emergency accounts on the system.
 emergency_accounts: []
