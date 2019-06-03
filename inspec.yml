@@ -14,12 +14,12 @@ depends:
 
 attributes:
   - name: auditd_space_left
-    description: 'The amount of space left. Typically, this is set to at least 25% of the volume housing the audit logs.'
-    default: SET_ME
+    description: 'The amount of space left in MB. Typically, this is set to at least 25% of the volume housing the audit logs (e.g. 25000 for 25% of a 100 GB volume).'
+    default: 0
     
   - name: banner_text
     description: 'The banner text for graphical, CLI, and remote logins.'
-    default: SET_ME
+    default: ''
   
   - name: max_logins
     description: 'The maximum number of simultaneous system logins.' 
@@ -34,5 +34,5 @@ attributes:
     default: []
   
   - name: package_signing_keys
-    description: 'The list of package signing keys used by the system.'
-    default: ['gpg-pubkey-fd431d51-4ae0493b', 'gpg-pubkey-2fa658e0-45700c69']
+    description: 'The list of package signing keys used by the system (e.g., [''gpg-pubkey-fd431d51-4ae0493b'', ''gpg-pubkey-2fa658e0-45700c69'']).'
+    default: []
