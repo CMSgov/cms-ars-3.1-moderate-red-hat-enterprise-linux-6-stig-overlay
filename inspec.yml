@@ -8,8 +8,8 @@ summary: "CMS ARS3.1 Overlay against the Red Hat Enterprise Linux 6 DISA STIG In
 version: 0.1.0
 
 depends:
-- name: Red Hat Enterprise Linux 6 Security Technical Implementation Guide
-  path: ../red-hat-enterprise-linux-6-stig-baseline.git
+- name: red-hat-enterprise-linux-6-stig-baseline
+  path: ../red-hat-enterprise-linux-6-stig-baseline
 
 attributes:
   - name: auditd_space_left
