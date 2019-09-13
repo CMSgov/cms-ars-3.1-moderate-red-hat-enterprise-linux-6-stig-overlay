@@ -9,23 +9,23 @@ version: 0.1.0
 
 depends:
 - name: red-hat-enterprise-linux-6-stig-baseline
-  path: ./red-hat-enterprise-linux-6-stig-baseline
+  path: ../red-hat-enterprise-linux-6-stig-baseline
 
 attributes:
   - name: auditd_space_left
     description: 'The amount of space left in MB. Typically, this is set to at least 25% of the volume housing the audit logs (e.g. 225).'
     default: 0
     
-#   - name: banner_text
-#     description: 'The banner text for graphical, CLI, and remote logins.'
-#     default: "* This warning banner provides privacy and security notices consistent with applicable federal laws, directives, and other federal guidance for accessing this Government system, which includes (1) this computer network, (2) all computers connected to this network, and (3) all devices and storage media attached to this network or to a computer on this network.
-# * This system is provided for Government authorized use only.
-# * Unauthorized or improper use of this system is prohibited and may result in disciplinary action and/or civil and criminal penalties.
-# * Personal use of social media and networking sites on this system is limited as to not interfere with official work duties and is subject to monitoring.
-# * By using this system, you understand and consent to the following:
-# - The Government may monitor, record, and audit your system usage, including usage of personal devices and email systems for official duties or to conduct HHS business. Therefore, you have no reasonable expectation of privacy regarding any communication or data transiting or stored on this system. At any time, and for any lawful Government purpose, the government may monitor, intercept, and search and seize any communication or data transiting or stored on this system.
-# - Any communication or data transiting or stored on this system may be disclosed or used for any lawful Government purpose'"" 
-# "
+  - name: banner_text
+    description: 'The banner text for graphical, CLI, and remote logins.'
+    default: 
+      "* This warning banner provides privacy and security notices consistent with applicable federal laws, directives, and other federal guidance for accessing this Government system, which includes (1) this computer network, (2) all computers connected to this network, and (3) all devices and storage media attached to this network or to a computer on this network.
+      * This system is provided for Government authorized use only.
+      * Unauthorized or improper use of this system is prohibited and may result in disciplinary action and/or civil and criminal penalties.
+      * Personal use of social media and networking sites on this system is limited as to not interfere with official work duties and is subject to monitoring.
+      * By using this system, you understand and consent to the following:
+      - The Government may monitor, record, and audit your system usage, including usage of personal devices and email systems for official duties or to conduct HHS business. Therefore, you have no reasonable expectation of privacy regarding any communication or data transiting or stored on this system. At any time, and for any lawful Government purpose, the government may monitor, intercept, and search and seize any communication or data transiting or stored on this system.
+      - Any communication or data transiting or stored on this system may be disclosed or used for any lawful Government purpose"
 
   - name: pam_faillock_fail_interval
     description: 'minimum amount of time account must be locked out after failed logins.'
