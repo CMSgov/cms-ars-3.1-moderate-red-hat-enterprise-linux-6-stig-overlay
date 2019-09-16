@@ -114,6 +114,7 @@ include_controls 'red-hat-enterprise-linux-6-stig-baseline' do
          Note that any updates made to "/etc/pam.d/system-auth" and 
          "/etc/pam.d/password-auth" may be overwritten by the "authconfig" program.  The 
          "authconfig" program should not be used.'
+
   end
 
   control 'V-38569' do
@@ -559,4 +560,32 @@ If ucredit is not found or not set to the required value, this is a finding.'
          low incurs support costs and also has the potential to impact availability of the system 
          to legitimate users.'
   end
+
+  control 'V-38465' do
+     impact 'none'
+     desc 'caveat', 'Not applicable for this CMS ARS 3.1 overlay, since the related security control
+      is not included in CMS ARS 3.1'
+  end
+
+  control 'V-38466' do
+     impact 'none'
+     desc 'caveat', 'Not applicable for this CMS ARS 3.1 overlay, since the related security control
+      is not included in CMS ARS 3.1'
+  end
+
+  control 'V-38469' do
+     impact 'none'
+     desc 'caveat', 'Not applicable for this CMS ARS 3.1 overlay, since the related security control
+      is not included in CMS ARS 3.1'
+  end
+  control 'V-38472' do
+     impact 'none'
+     desc 'caveat', 'Not applicable for this CMS ARS 3.1 overlay, since the related security control
+      is not included in CMS ARS 3.1'
+  end
 end
+
+  control 'V-58901' do
+    tag "nist": ['AC-6(10)', 'Rev_4']
+  end
+
