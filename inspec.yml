@@ -11,14 +11,14 @@ depends:
 - name: red-hat-enterprise-linux-6-stig-baseline
   path: ../red-hat-enterprise-linux-6-stig-baseline
 
-attributes:
+inputs:
   - name: auditd_space_left
     description: 'The amount of space left in MB. Typically, this is set to at least 25% of the volume housing the audit logs (e.g. 225).'
-    default: 0
+    value: 0
     
   - name: banner_text
     description: 'The banner text for graphical, CLI, and remote logins.'
-    default: 
+    value: 
       "* This warning banner provides privacy and security notices consistent with applicable federal laws, directives, and other federal guidance for accessing this Government system, which includes (1) this computer network, (2) all computers connected to this network, and (3) all devices and storage media attached to this network or to a computer on this network.
       * This system is provided for Government authorized use only.
       * Unauthorized or improper use of this system is prohibited and may result in disciplinary action and/or civil and criminal penalties.
@@ -29,46 +29,46 @@ attributes:
 
   - name: pam_faillock_fail_interval
     description: 'minimum amount of time account must be locked out after failed logins.'
-    default: 7200
+    value: 7200
 
   - name: pam_cracklib_difok
-    default: 6
+    value: 6
 
   - name: pam_faillock_deny
-    default: 5
+    value: 5
 
   - name: pam_faillock_unlock_time
-    default: 1800
+    value: 1800
 
   - name: client_alive_interval
-    default: 1800
+    value: 1800
 
   - name: min_reuse_generations
     description: The minimum number of generations before a password can be reused.
-    default: 6
+    value: 6
 
   - name: days_of_inactivity
     description: 'The number of days of inactivity before an account is disabled.'
-    default: 60
+    value: 60
 
   - name: max_logins
     description: 'The maximum number of simultaneous system logins. (e.g., 10)' 
-    default: 0
+    value: 0
     
   - name: emergency_accounts
     description: 'The list of emergency accounts on the system.'
-    default: []
+    value: []
 
   - name: emergency_accounts_expiration_days
-    default: 1
+    value: 1
 
   - name: temporary_accounts
     description: 'The list of temporary accounts on the system.'
-    default: []
+    value: []
   
   - name: temporary_accounts_expiration_days
-    default: 30
+    value: 30
 
   - name: package_signing_keys
     description: 'The list of package signing keys used by the system (e.g., [''gpg-pubkey-fd431d51-4ae0493b'', ''gpg-pubkey-2fa658e0-45700c69'']).'
-    default: []
+    value: []
