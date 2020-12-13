@@ -1,20 +1,22 @@
-name: cms-ars3.1-moderate-red-hat-enterprise-linux-6-stig-overlay
-title: cms-ars3.1-moderate-red-hat-enterprise-linux-6-stig-overlay
+name: cms-ars-3.1-moderate-red-hat-enterprise-linux-6-stig-overlay
+title: cms-ars-3.1-moderate-red-hat-enterprise-linux-6-stig-overlay
 maintainer: CMS InSpec Dev Team
 copyright: (c) 2019 The MITRE Corporation
 copyright_email: inspec@mitre.org
 license: Apache-2.0
-summary: "CMS ARS3.1 Overlay against the Red Hat Enterprise Linux 6 DISA STIG InSpec Profile"
-version: 0.1.0
+summary: "CMS ARS 3.1 Moderate Overlay InSpec Validation Profile for Red Hat Enterprise Linux 6 STIG"
+version: 0.1.1
+inspec_version: ">= 4.0"
 
 depends:
 - name: red-hat-enterprise-linux-6-stig-baseline
-  path: ../red-hat-enterprise-linux-6-stig-baseline
+  url: https://github.com/mitre/red-hat-enterprise-linux-6-stig-baseline/archive/master.tar.gz
 
 inputs:
   - name: auditd_space_left
     description: 'The amount of space left in MB. Typically, this is set to at least 25% of the volume housing the audit logs (e.g. 225).'
     value: 0
+    profile: red-hat-enterprise-linux-6-stig-baseline
     
   - name: banner_text
     description: 'The banner text for graphical, CLI, and remote logins.'
@@ -26,49 +28,63 @@ inputs:
       * By using this system, you understand and consent to the following:
       - The Government may monitor, record, and audit your system usage, including usage of personal devices and email systems for official duties or to conduct HHS business. Therefore, you have no reasonable expectation of privacy regarding any communication or data transiting or stored on this system. At any time, and for any lawful Government purpose, the government may monitor, intercept, and search and seize any communication or data transiting or stored on this system.
       - Any communication or data transiting or stored on this system may be disclosed or used for any lawful Government purpose"
+    profile: red-hat-enterprise-linux-6-stig-baseline
 
   - name: pam_faillock_fail_interval
     description: 'minimum amount of time account must be locked out after failed logins.'
     value: 7200
+    profile: red-hat-enterprise-linux-6-stig-baseline
 
   - name: pam_cracklib_difok
     value: 6
+    profile: red-hat-enterprise-linux-6-stig-baseline
 
   - name: pam_faillock_deny
     value: 5
+    profile: red-hat-enterprise-linux-6-stig-baseline
 
   - name: pam_faillock_unlock_time
     value: 1800
+    profile: red-hat-enterprise-linux-6-stig-baseline
 
   - name: client_alive_interval
     value: 1800
+    profile: red-hat-enterprise-linux-6-stig-baseline
 
   - name: min_reuse_generations
     description: The minimum number of generations before a password can be reused.
     value: 6
+    profile: red-hat-enterprise-linux-6-stig-baseline
 
   - name: days_of_inactivity
     description: 'The number of days of inactivity before an account is disabled.'
     value: 60
+    profile: red-hat-enterprise-linux-6-stig-baseline
 
   - name: max_logins
     description: 'The maximum number of simultaneous system logins. (e.g., 10)' 
     value: 0
+    profile: red-hat-enterprise-linux-6-stig-baseline
     
   - name: emergency_accounts
     description: 'The list of emergency accounts on the system.'
     value: []
+    profile: red-hat-enterprise-linux-6-stig-baseline
 
   - name: emergency_accounts_expiration_days
     value: 1
+    profile: red-hat-enterprise-linux-6-stig-baseline
 
   - name: temporary_accounts
     description: 'The list of temporary accounts on the system.'
     value: []
+    profile: red-hat-enterprise-linux-6-stig-baseline
   
   - name: temporary_accounts_expiration_days
     value: 30
+    profile: red-hat-enterprise-linux-6-stig-baseline
 
   - name: package_signing_keys
     description: 'The list of package signing keys used by the system (e.g., [''gpg-pubkey-fd431d51-4ae0493b'', ''gpg-pubkey-2fa658e0-45700c69'']).'
     value: []
+    profile: red-hat-enterprise-linux-6-stig-baseline
